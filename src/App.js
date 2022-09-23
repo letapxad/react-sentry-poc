@@ -9,8 +9,9 @@ import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import CatFacts from "./pages/CatFacts";
 import ButtonPage from "./pages/ButtonPage";
+import * as Sentry from "@sentry/react";
 
-export default function App() {
+const App = () => {
   return (
       <BrowserRouter>
         <Routes>
@@ -26,3 +27,4 @@ export default function App() {
 }
 
 
+export default Sentry.withProfiler(App, {name: 'Demo React App'});

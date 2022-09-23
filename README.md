@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Project Set up
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Install dependencies:
 
-## Available Scripts
+### `npm install`
 
-In the project directory, you can run:
+Start the development server
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Sentry Integration
+###Sentry account set up to Monitor the web application
 
-### `npm test`
+- Create your own Sentry dev account, org, and project by signing up here:
+  https://sentry.io/signup/
+- Create a new React project under Project > Create Project
+- Copy Client keys from SDK setup section under the project settings
+- Under src/index.js Replace the DSN with your DSN you just copied
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### This POC demonstrates a React web app with 3 Routes
 
-### `npm run build`
+- /Home - Simple HTML page
+- /cat-facts - Page using fetch to retrieve a remote resource
+- /button - An inaccessible page rendering a React component with an undeclared function
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Sentry instrumentation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Under the project, visit Performance > Spans to view span summary
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Instruments spans for various operation
+![page load](images/spans.png)
+2. Navigation transactions
+![page load](images/page-load-transactions.png)
+3. React Component Profiler
+ ![component span](images/component-span.png)
+4. Capture Fetch request
+![http request](images/span-http-client.png)
+5. Capture Error events on the button page to identify the issue
+![button error](images/button-error.png)

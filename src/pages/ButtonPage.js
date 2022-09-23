@@ -1,8 +1,8 @@
 const ButtonPage = () => {
 
-    function handleClick() {
-        alert("button clicked!!")
-    }
+    // function handleClick() {
+    //     alert("button clicked!!")
+    // }
 
     return (
         <>
