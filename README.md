@@ -12,7 +12,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 # Sentry Integration
-###Sentry account set up to Monitor the web application
+### Sentry account set up to Monitor the web application
 
 - Create your own Sentry dev account, org, and project by signing up here:
   https://sentry.io/signup/
